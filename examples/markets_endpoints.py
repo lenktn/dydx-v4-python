@@ -6,10 +6,12 @@ from dydx_v4_client.network import TESTNET
 
 # ------------ Markets ------------
 MARKET_BTC_USD = "BTC-USD"
-
+host = "https://indexer.dydx.trade"
 
 async def test():
-    client = IndexerClient(TESTNET.rest_indexer)
+    # client = IndexerClient(TESTNET.rest_indexer)
+
+    client = IndexerClient(host)
 
     # Get perp markets
     try:
@@ -128,4 +130,5 @@ async def main():
     await test()
 
 
-asyncio.run(main())
+if __name__ == "__main__":
+    asyncio.run(main())

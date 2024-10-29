@@ -17,29 +17,24 @@ class IndexerClient:
         self._account = AccountClient(host, api_timeout)
         self._status = StatusClient(host, api_timeout)
 
+    # Создаются три внутренних клиента: для рынков, аккаунтов и статуса системы
     @property
     def markets(self) -> MarketsClient:
         """
-        Get the public module, used for interacting with public endpoints.
-
-        Returns:
-            The public module
+        Возвращает клиента для работы с публичными API (например, получение информации о рынках).
         """
         return self._markets
 
     @property
     def account(self) -> AccountClient:
         """
-        Get the private module, used for interacting with private endpoints.
-
-        Returns:
-            The private module
+        Возвращает клиента для работы с приватными API (например, информация об аккаунте пользователя).
         """
         return self._account
 
     @property
     def utility(self) -> StatusClient:
         """
-        Get the status module, used for interacting with non-market public endpoints.
+        Возвращает клиента для получения системной информации (например, статус сервера).
         """
         return self._status
